@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday, Bes! 💗</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      font-family: "Poppins", Arial, sans-serif;
+      background: linear-gradient(135deg, #ffd1e3, #ffb6d5, #ffe6f0);
+    }
+
+    /* Floating decorations */
+    .decoration {
+      position: absolute;
+      font-size: 35px;
+      animation: float 6s infinite ease-in-out;
+      pointer-events: none;
+    }
+
+    .heart1 { top: 10%; left: 10%; }
+    .heart2 { top: 20%; right: 10%; animation-delay: 1s; }
+    .balloon1 { bottom: 5%; left: 8%; animation-delay: 2s; }
+    .balloon2 { bottom: 10%; right: 8%; animation-delay: 3s; }
+    .sparkle1 { top: 8%; right: 30%; animation-delay: 1.5s; }
+    .sparkle2 { bottom: 15%; left: 30%; animation-delay: 2.5s; }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0) rotate(-5deg);
+      }
+      50% {
+        transform: translateY(-25px) rotate(5deg);
+      }
+    }
+
+    /* Birthday Card */
+    .card {
+      position: relative;
+      z-index: 2;
+      width: 90%;
+      max-width: 420px;
+      padding: 35px 25px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.92);
+      border: 4px solid #ff8fbc;
+      border-radius: 30px;
+      box-shadow: 0 15px 40px rgba(190, 50, 110, 0.25);
+    }
+
+    .cake {
+      font-size: 65px;
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    h1 {
+      margin: 10px 0;
+      color: #ff3f8e;
+      font-size: 34px;
+    }
+
+    .name {
+      color: #d92f75;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .intro {
+      color: #777;
+      line-height: 1.6;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 13px 25px;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #ff4f91, #ff79ad);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(255, 63, 142, 0.3);
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.08);
+    }
+
+    #message {
+      display: none;
+      margin-top: 20px;
+      padding: 18px;
+      background: #fff0f6;
+      border-radius: 20px;
+      color: #6b4052;
+      line-height: 1.7;
+      animation: appear 0.8s ease;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .signature {
+      margin-top: 15px;
+      color: #ff3f8e;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Decorations -->
+  <div class="decoration heart1">💗</div>
+  <div class="decoration heart2">💕</div>
+  <div class="decoration balloon1">🎈</div>
+  <div class="decoration balloon2">🎀</div>
+  <div class="decoration sparkle1">✨</div>
+  <div class="decoration sparkle2">💖</div>
+
+  <!-- Main Card -->
+  <div class="card">
+
+    <div class="cake">🎂</div>
+
+    <h1>Happy Birthday!</h1>
+
+    <div class="name">
+      To: Bes 💗
+    </div>
+
+    <p class="intro">
+      A little birthday surprise for my
+      favorite partner in crime. 🎀
+    </p>
+
+    <button onclick="openMessage()">
+      🎁 Open Your Message
+    </button>
+
+    <div id="message">
+
+      <strong>Happy Birthday, Bes! 🥳💗</strong>
+
+      <p>
+        You are my <b>partner in crime</b>—
+        ikaw lang ang nakakaalam ng mga kalokohan ko,
+        kaya bawal kang magsumbong. 🤫😂
+      </p>
+
+      <p>
+        Salamat sa lahat ng tawanan, random na kwentuhan,
+        at mga trip na tayo lang nakakaintindi.
+        Kahit minsan puro kalokohan tayo,
+        I'm glad na ikaw yung isa sa mga taong
+        pwede kong maging sarili ko.
+      </p>
+
+      <p>
+        Another year, another level ng mga kalokohan natin. 😂🎀
+      </p>
+
+      <p>
+        Enjoy your special day, Bes!
+        Stay happy, stay awesome, and keep being you! 💕
+      </p>
+
+      <div class="signature">
+        Happy Birthday! 🎂💗✨
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    function openMessage() {
+      document.getElementById("message").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
