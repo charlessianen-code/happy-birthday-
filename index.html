@@ -1,10 +1,11 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Birthday Bes 💗</title>
+<title>Happy Birthday, Bes! 💗</title>
 
 <style>
 * {
@@ -19,173 +20,246 @@ html, body {
 }
 
 body {
+  font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #ffd1e3, #ffb6d5, #ffe8f1);
+  background:
+    radial-gradient(circle at top, #fff0f7, transparent 40%),
+    linear-gradient(135deg, #ffb6d5, #ff8fbc, #ffd9e8);
 }
 
-/* Floating decorations */
-.float {
+/* Floating hearts */
+.heart {
   position: fixed;
+  font-size: 25px;
+  pointer-events: none;
+  animation: floatUp 5s linear infinite;
+  opacity: 0;
+}
+
+.h1 { left: 8%; animation-delay: 0s; }
+.h2 { left: 25%; animation-delay: 2s; }
+.h3 { right: 20%; animation-delay: 1s; }
+.h4 { right: 7%; animation-delay: 3s; }
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) scale(.5);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-20vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Main card */
+.card {
+  width: 90%;
+  max-width: 390px;
+  height: 84vh;
+  max-height: 620px;
+  background: rgba(255,255,255,.95);
+  border: 4px solid #ff78ad;
+  border-radius: 30px;
+  box-shadow: 0 15px 40px rgba(180,40,100,.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+}
+
+/* OPEN SCREEN */
+#openScreen {
+  width: 100%;
+  animation: fadeIn 1s ease;
+}
+
+.envelope {
+  font-size: 85px;
+  cursor: pointer;
+  animation: bounce 1.5s infinite;
+}
+
+.openTitle {
+  color: #ff3f8e;
   font-size: 28px;
-  animation: float 3s ease-in-out infinite;
+  margin: 10px 0;
 }
 
-.heart1 {
-  top: 8%;
-  left: 8%;
+.openText {
+  color: #777;
+  font-size: 14px;
 }
 
-.heart2 {
-  top: 15%;
-  right: 8%;
-  animation-delay: 1s;
+.openButton {
+  margin-top: 15px;
+  border: none;
+  padding: 13px 25px;
+  border-radius: 30px;
+  background: linear-gradient(135deg,#ff3f8e,#ff82b3);
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(255,50,130,.3);
 }
 
-.balloon1 {
-  bottom: 8%;
-  left: 8%;
-  animation-delay: 0.5s;
+/* Birthday content */
+#birthday {
+  display: none;
+  width: 100%;
+  animation: birthdayAppear 1s ease;
 }
 
-.balloon2 {
-  bottom: 10%;
-  right: 8%;
-  animation-delay: 1.5s;
+@keyframes birthdayAppear {
+  from {
+    opacity: 0;
+    transform: scale(.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-@keyframes float {
-  0%, 100% {
+.cake {
+  font-size: 65px;
+  display: inline-block;
+  animation: cakeBounce 1.2s infinite;
+}
+
+.guitar {
+  font-size: 55px;
+  display: inline-block;
+  margin-left: 8px;
+  animation: guitarMove 1.5s ease-in-out infinite;
+}
+
+@keyframes cakeBounce {
+  0%,100% {
     transform: translateY(0);
   }
+  50% {
+    transform: translateY(-10px);
+  }
+}
 
+@keyframes guitarMove {
+  0%,100% {
+    transform: rotate(-8deg);
+  }
+  50% {
+    transform: rotate(8deg);
+  }
+}
+
+h1 {
+  color: #ff3f8e;
+  font-size: 30px;
+  margin: 8px 0;
+}
+
+.name {
+  color: #d52e70;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.subtitle {
+  color: #777;
+  font-size: 14px;
+  margin: 8px 0 15px;
+}
+
+.message {
+  background: #fff0f6;
+  border-radius: 20px;
+  padding: 15px;
+  color: #654052;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.message p {
+  margin: 7px 0;
+}
+
+.signature {
+  color: #ff3f8e;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.music {
+  margin-top: 12px;
+  color: #d52e70;
+  font-size: 12px;
+}
+
+.musicIcon {
+  display: inline-block;
+  animation: musicBounce .8s infinite alternate;
+}
+
+@keyframes musicBounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes bounce {
+  0%,100% {
+    transform: translateY(0);
+  }
   50% {
     transform: translateY(-12px);
   }
 }
 
-/* Card */
-.card {
-  width: 88%;
-  max-width: 380px;
-  height: 82vh;
-  max-height: 600px;
-  padding: 20px;
-  text-align: center;
-
-  background: rgba(255,255,255,0.95);
-  border: 3px solid #ff8ab8;
-  border-radius: 28px;
-
-  box-shadow: 0 12px 30px rgba(200,60,120,0.25);
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Cake */
-.cake {
-  font-size: 55px;
-  margin-bottom: 5px;
-  animation: bounce 1.5s infinite;
-}
-
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-
-  50% {
-    transform: translateY(-8px);
+  to {
+    opacity: 1;
   }
 }
 
-/* Text */
-h1 {
-  margin: 5px 0;
-  color: #ff3f8e;
-  font-size: clamp(28px, 8vw, 36px);
-}
-
-.name {
-  color: #d92f75;
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-.intro {
-  color: #777;
-  font-size: 14px;
-  margin: 5px 0 12px;
-}
-
-/* Button */
-button {
-  border: none;
-  padding: 11px 20px;
-  border-radius: 25px;
-
-  background: linear-gradient(135deg, #ff4f91, #ff82b3);
-  color: white;
-
-  font-size: 14px;
-  font-weight: bold;
-
-  cursor: pointer;
-  box-shadow: 0 5px 12px rgba(255,63,142,0.3);
-}
-
-/* Message */
-#message {
-  display: none;
-  margin-top: 15px;
-  padding: 14px;
-
-  background: #fff0f6;
-  border-radius: 18px;
-
-  color: #684052;
-  font-size: 13px;
-  line-height: 1.45;
-
-  width: 100%;
-}
-
-#message p {
-  margin: 7px 0;
-}
-
-.signature {
-  margin-top: 8px;
-  color: #ff3f8e;
-  font-weight: bold;
-}
-
-/* Mobile adjustment */
+/* Small phones */
 @media (max-height: 600px) {
   .card {
     height: 90vh;
-    padding: 14px;
+    padding: 12px;
+  }
+
+  .envelope {
+    font-size: 65px;
   }
 
   .cake {
-    font-size: 42px;
+    font-size: 45px;
+  }
+
+  .guitar {
+    font-size: 40px;
   }
 
   h1 {
-    font-size: 27px;
+    font-size: 25px;
   }
 
-  .intro {
-    font-size: 12px;
-  }
-
-  #message {
+  .message {
     font-size: 11px;
     padding: 10px;
   }
@@ -195,66 +269,120 @@ button {
 
 <body>
 
-<!-- Decorations -->
-<div class="float heart1">💗</div>
-<div class="float heart2">💕</div>
-<div class="float balloon1">🎈</div>
-<div class="float balloon2">🎀</div>
+<!-- Floating hearts -->
+<div class="heart h1">💗</div>
+<div class="heart h2">💕</div>
+<div class="heart h3">💖</div>
+<div class="heart h4">💞</div>
 
-<!-- Birthday Card -->
 <div class="card">
 
-  <div class="cake">🎂</div>
+  <!-- OPEN SCREEN -->
+  <div id="openScreen">
 
-  <h1>Happy Birthday!</h1>
+    <div class="envelope" onclick="openBirthday()">
+      💌
+    </div>
 
-  <div class="name">
-    To: Bes 💗
+    <div class="openTitle">
+      A Birthday Surprise 💗
+    </div>
+
+    <div class="openText">
+      Tap the button to open your surprise 🎀
+    </div>
+
+    <button class="openButton" onclick="openBirthday()">
+      🎁 OPEN
+    </button>
+
   </div>
 
-  <p class="intro">
-    To my favorite partner in crime. 🎀
-  </p>
 
-  <button onclick="openMessage()">
-    🎁 Open Message
-  </button>
+  <!-- BIRTHDAY SCREEN -->
+  <div id="birthday">
 
-  <div id="message">
+    <div>
+      <span class="cake">🎂</span>
+      <span class="guitar">🎸</span>
+    </div>
 
-    <strong>Happy Birthday, Bes! 🥳💗</strong>
+    <h1>Happy Birthday! 🎉</h1>
 
-    <p>
-      You are my <b>partner in crime</b>—
-      ikaw lang ang nakakaalam ng mga kalokohan ko,
-      kaya bawal magsumbong. 🤫😂
-    </p>
+    <div class="name">
+      To: Bes 💗
+    </div>
 
-    <p>
-      Salamat sa tawanan, kwentuhan,
-      at lahat ng trip natin.
-      I'm glad na ikaw yung isa sa mga
-      taong pwede kong maging sarili ko. 💕
-    </p>
+    <div class="subtitle">
+      My favorite partner in crime. 🎀
+    </div>
 
-    <p>
-      Another year, another level
-      ng kalokohan natin. 😂🎀
-    </p>
+    <div class="message">
 
-    <div class="signature">
-      Enjoy your special day! 🎂✨
+      <strong>Happy Birthday, Bes! 🥳💗</strong>
+
+      <p>
+        You are my <b>partner in crime</b>—
+        ikaw lang ang nakakaalam ng mga kalokohan ko,
+        kaya bawal magsumbong. 🤫😂
+      </p>
+
+      <p>
+        Salamat sa tawanan, kwentuhan,
+        at lahat ng trip natin.
+        I'm glad na ikaw yung isa sa mga
+        taong pwede kong maging sarili ko. 💕
+      </p>
+
+      <p>
+        Another year, another level
+        ng kalokohan natin! 😂🎀
+      </p>
+
+      <div class="signature">
+        Enjoy your special day! 🎂💗✨
+      </div>
+
+    </div>
+
+    <div class="music">
+      <span class="musicIcon">🎵</span>
+      Playing your birthday song...
+      <span class="musicIcon">🎵</span>
     </div>
 
   </div>
 
 </div>
 
+
+<!-- YOUR MUSIC FILE -->
+<audio id="birthdaySong" loop>
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+
 <script>
-function openMessage() {
-  document.getElementById("message").style.display = "block";
+
+function openBirthday() {
+
+  // Hide envelope
+  document.getElementById("openScreen").style.display = "none";
+
+  // Show birthday
+  document.getElementById("birthday").style.display = "block";
+
+  // Play music
+  const music = document.getElementById("birthdaySong");
+
+  music.play().catch(function() {
+    console.log("Music requires user interaction.");
+  });
+
 }
+
 </script>
 
 </body>
 </html>
+```
