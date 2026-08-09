@@ -48,9 +48,11 @@ body {
     transform: translateY(100vh) scale(.5);
     opacity: 0;
   }
+
   20% {
     opacity: 1;
   }
+
   100% {
     transform: translateY(-20vh) scale(1.2);
     opacity: 0;
@@ -61,19 +63,26 @@ body {
 .card {
   width: 90%;
   max-width: 390px;
-  height: 84vh;
+  height: 88vh;
   max-height: 620px;
-  background: rgba(255,255,255,.95);
+
+  background: rgba(255,255,255,.96);
+
   border: 4px solid #ff78ad;
   border-radius: 30px;
+
   box-shadow: 0 15px 40px rgba(180,40,100,.3);
+
   display: flex;
   justify-content: center;
   align-items: center;
+
   text-align: center;
+
   position: relative;
   z-index: 2;
-  padding: 20px;
+
+  padding: 18px;
 }
 
 /* OPEN SCREEN */
@@ -83,7 +92,7 @@ body {
 }
 
 .envelope {
-  font-size: 85px;
+  font-size: 80px;
   cursor: pointer;
   animation: bounce 1.5s infinite;
 }
@@ -91,6 +100,7 @@ body {
 .openTitle {
   color: #ff3f8e;
   font-size: 28px;
+  font-weight: bold;
   margin: 10px 0;
 }
 
@@ -101,18 +111,25 @@ body {
 
 .openButton {
   margin-top: 15px;
+
   border: none;
-  padding: 13px 25px;
+  padding: 13px 28px;
+
   border-radius: 30px;
+
   background: linear-gradient(135deg,#ff3f8e,#ff82b3);
+
   color: white;
+
   font-size: 15px;
   font-weight: bold;
+
   cursor: pointer;
+
   box-shadow: 0 6px 15px rgba(255,50,130,.3);
 }
 
-/* Birthday content */
+/* Birthday */
 #birthday {
   display: none;
   width: 100%;
@@ -124,20 +141,22 @@ body {
     opacity: 0;
     transform: scale(.7);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
   }
 }
 
+/* Cake and guitar */
 .cake {
-  font-size: 65px;
+  font-size: 58px;
   display: inline-block;
   animation: cakeBounce 1.2s infinite;
 }
 
 .guitar {
-  font-size: 55px;
+  font-size: 50px;
   display: inline-block;
   margin-left: 8px;
   animation: guitarMove 1.5s ease-in-out infinite;
@@ -147,8 +166,9 @@ body {
   0%,100% {
     transform: translateY(0);
   }
+
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-9px);
   }
 }
 
@@ -156,6 +176,7 @@ body {
   0%,100% {
     transform: rotate(-8deg);
   }
+
   50% {
     transform: rotate(8deg);
   }
@@ -163,8 +184,8 @@ body {
 
 h1 {
   color: #ff3f8e;
-  font-size: 30px;
-  margin: 8px 0;
+  font-size: 29px;
+  margin: 7px 0;
 }
 
 .name {
@@ -175,46 +196,195 @@ h1 {
 
 .subtitle {
   color: #777;
-  font-size: 14px;
-  margin: 8px 0 15px;
+  font-size: 13px;
+  margin: 7px 0 12px;
 }
 
+/* Message */
 .message {
   background: #fff0f6;
-  border-radius: 20px;
-  padding: 15px;
+  border-radius: 18px;
+  padding: 12px;
+
   color: #654052;
-  font-size: 13px;
-  line-height: 1.5;
+
+  font-size: 12px;
+  line-height: 1.45;
 }
 
 .message p {
-  margin: 7px 0;
+  margin: 6px 0;
 }
 
 .signature {
   color: #ff3f8e;
   font-weight: bold;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
-.music {
+/* MUSIC PLAYER */
+.music-player {
   margin-top: 12px;
-  color: #d52e70;
-  font-size: 12px;
+
+  width: 100%;
+
+  padding: 10px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  background: linear-gradient(
+    135deg,
+    #ffe0ec,
+    #ffc1d9
+  );
+
+  border: 2px solid #ff8fbc;
+
+  border-radius: 18px;
+
+  box-shadow: 0 5px 15px rgba(255,80,140,.15);
 }
 
-.musicIcon {
-  display: inline-block;
-  animation: musicBounce .8s infinite alternate;
+/* Disc */
+.disc {
+  width: 43px;
+  height: 43px;
+
+  min-width: 43px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(circle,
+      #ff8fbc 0 5px,
+      #ff4f91 6px 9px,
+      #222 10px 100%
+    );
+
+  animation: spin 4s linear infinite;
 }
 
-@keyframes musicBounce {
+@keyframes spin {
   from {
-    transform: translateY(0);
+    transform: rotate(0deg);
   }
+
   to {
-    transform: translateY(-5px);
+    transform: rotate(360deg);
+  }
+}
+
+/* Song information */
+.song-info {
+  flex: 1;
+  text-align: left;
+  overflow: hidden;
+}
+
+.song-title {
+  color: #c72e6d;
+  font-weight: bold;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.artist {
+  color: #8c6070;
+  font-size: 11px;
+  margin-top: 2px;
+}
+
+/* Music bars */
+.music-bars {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 25px;
+}
+
+.bar {
+  width: 3px;
+  background: #ff4f91;
+  border-radius: 5px;
+
+  animation: bars .7s ease-in-out infinite alternate;
+}
+
+.bar:nth-child(1) {
+  height: 10px;
+  animation-delay: .1s;
+}
+
+.bar:nth-child(2) {
+  height: 18px;
+  animation-delay: .2s;
+}
+
+.bar:nth-child(3) {
+  height: 13px;
+  animation-delay: .3s;
+}
+
+.bar:nth-child(4) {
+  height: 22px;
+  animation-delay: .4s;
+}
+
+.bar:nth-child(5) {
+  height: 15px;
+  animation-delay: .5s;
+}
+
+@keyframes bars {
+  from {
+    transform: scaleY(.5);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* Small phones */
+@media (max-height: 600px) {
+
+  .card {
+    height: 92vh;
+    padding: 10px;
+  }
+
+  .envelope {
+    font-size: 60px;
+  }
+
+  .cake {
+    font-size: 42px;
+  }
+
+  .guitar {
+    font-size: 38px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .message {
+    font-size: 10px;
+    padding: 8px;
+  }
+
+  .music-player {
+    margin-top: 8px;
+    padding: 7px;
+  }
+
+  .disc {
+    width: 35px;
+    height: 35px;
+    min-width: 35px;
   }
 }
 
@@ -222,6 +392,7 @@ h1 {
   0%,100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-12px);
   }
@@ -231,37 +402,9 @@ h1 {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
-  }
-}
-
-/* Small phones */
-@media (max-height: 600px) {
-  .card {
-    height: 90vh;
-    padding: 12px;
-  }
-
-  .envelope {
-    font-size: 65px;
-  }
-
-  .cake {
-    font-size: 45px;
-  }
-
-  .guitar {
-    font-size: 40px;
-  }
-
-  h1 {
-    font-size: 25px;
-  }
-
-  .message {
-    font-size: 11px;
-    padding: 10px;
   }
 }
 </style>
@@ -275,12 +418,13 @@ h1 {
 <div class="heart h3">💖</div>
 <div class="heart h4">💞</div>
 
+
 <div class="card">
 
   <!-- OPEN SCREEN -->
   <div id="openScreen">
 
-    <div class="envelope" onclick="openBirthday()">
+    <div class="envelope">
       💌
     </div>
 
@@ -289,7 +433,7 @@ h1 {
     </div>
 
     <div class="openText">
-      Tap the button to open your surprise 🎀
+      Tap to open your surprise 🎀
     </div>
 
     <button class="openButton" onclick="openBirthday()">
@@ -302,12 +446,15 @@ h1 {
   <!-- BIRTHDAY SCREEN -->
   <div id="birthday">
 
+    <!-- Cake + Guitar -->
     <div>
       <span class="cake">🎂</span>
       <span class="guitar">🎸</span>
     </div>
 
-    <h1>Happy Birthday! 🎉</h1>
+    <h1>
+      Happy Birthday! 🎉
+    </h1>
 
     <div class="name">
       To: Bes 💗
@@ -317,9 +464,13 @@ h1 {
       My favorite partner in crime. 🎀
     </div>
 
+
+    <!-- Message -->
     <div class="message">
 
-      <strong>Happy Birthday, Bes! 🥳💗</strong>
+      <strong>
+        Happy Birthday, Bes! 🥳💗
+      </strong>
 
       <p>
         You are my <b>partner in crime</b>—
@@ -345,10 +496,34 @@ h1 {
 
     </div>
 
-    <div class="music">
-      <span class="musicIcon">🎵</span>
-      Playing your birthday song...
-      <span class="musicIcon">🎵</span>
+
+    <!-- PINK MUSIC PLAYER -->
+    <div class="music-player">
+
+      <div class="disc"></div>
+
+      <div class="song-info">
+
+        <div class="song-title">
+          🎵 Fifteen
+        </div>
+
+        <div class="artist">
+          Taylor Swift
+        </div>
+
+      </div>
+
+      <div class="music-bars">
+
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+
+      </div>
+
     </div>
 
   </div>
@@ -356,7 +531,7 @@ h1 {
 </div>
 
 
-<!-- YOUR MUSIC FILE -->
+<!-- MUSIC -->
 <audio id="birthdaySong" loop>
   <source src="song.mp3" type="audio/mpeg">
 </audio>
@@ -366,17 +541,15 @@ h1 {
 
 function openBirthday() {
 
-  // Hide envelope
   document.getElementById("openScreen").style.display = "none";
 
-  // Show birthday
   document.getElementById("birthday").style.display = "block";
 
-  // Play music
-  const music = document.getElementById("birthdaySong");
+  const music =
+    document.getElementById("birthdaySong");
 
   music.play().catch(function() {
-    console.log("Music requires user interaction.");
+    console.log("Music playback was blocked.");
   });
 
 }
