@@ -540,18 +540,19 @@ h1 {
 <script>
 
 function openBirthday() {
-
   document.getElementById("openScreen").style.display = "none";
-
   document.getElementById("birthday").style.display = "block";
 
-  const music =
-    document.getElementById("birthdaySong");
+  const music = document.getElementById("birthdaySong");
 
-  music.play().catch(function() {
-    console.log("Music playback was blocked.");
-  });
-
+  music.volume = 1;
+  music.play()
+    .then(() => {
+      console.log("Music is playing!");
+    })
+    .catch(error => {
+      console.log("Audio error:", error);
+    });
 }
 
 </script>
