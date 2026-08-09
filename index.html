@@ -26,8 +26,8 @@ body {
   align-items: center;
 
   background:
-    radial-gradient(circle at 20% 20%, #ffeaf3 0%, transparent 30%),
-    radial-gradient(circle at 80% 80%, #ffcade 0%, transparent 30%),
+    radial-gradient(circle at 20% 20%, #ffeaf3, transparent 30%),
+    radial-gradient(circle at 80% 80%, #ffcade, transparent 30%),
     linear-gradient(135deg, #ffb6d5, #ff8fbc, #ffd9e8);
 }
 
@@ -35,10 +35,9 @@ body {
 
 .heart {
   position: fixed;
-  font-size: 25px;
+  font-size: 24px;
   pointer-events: none;
   opacity: 0;
-
   animation: floatUp 6s linear infinite;
 }
 
@@ -64,7 +63,7 @@ body {
 
 @keyframes floatUp {
   0% {
-    transform: translateY(100vh) scale(0.5);
+    transform: translateY(100vh) scale(.5);
     opacity: 0;
   }
 
@@ -86,13 +85,13 @@ body {
   height: 88vh;
   max-height: 620px;
 
-  background: rgba(255, 255, 255, 0.96);
+  background: rgba(255,255,255,.97);
 
   border: 4px solid #ff78ad;
   border-radius: 30px;
 
   box-shadow:
-    0 15px 40px rgba(180, 40, 100, 0.30);
+    0 15px 40px rgba(180,40,100,.3);
 
   display: flex;
   justify-content: center;
@@ -110,24 +109,11 @@ body {
 
 #openScreen {
   width: 100%;
-  animation: fadeIn 1s ease;
 }
 
 .envelope {
-  font-size: 80px;
-  cursor: pointer;
-
-  animation: envelopeBounce 1.5s infinite;
-}
-
-@keyframes envelopeBounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-12px);
-  }
+  font-size: 75px;
+  animation: bounce 1.5s infinite;
 }
 
 .openTitle {
@@ -142,7 +128,8 @@ body {
   font-size: 14px;
 }
 
-.openButton {
+.openButton,
+.blowButton {
   margin-top: 15px;
 
   border: none;
@@ -164,28 +151,122 @@ body {
   cursor: pointer;
 
   box-shadow:
-    0 6px 15px rgba(255, 50, 130, 0.3);
+    0 6px 15px rgba(255,50,130,.3);
 
-  transition: transform 0.2s;
+  transition: .2s;
 }
 
-.openButton:active {
-  transform: scale(0.95);
+.openButton:active,
+.blowButton:active {
+  transform: scale(.94);
 }
 
-/* BIRTHDAY SCREEN */
+/* CANDLE SCREEN */
+
+#candleScreen {
+  display: none;
+  width: 100%;
+}
+
+.candleTitle {
+  color: #ff3f8e;
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.candleText {
+  color: #777;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+/* CAKE */
+
+.cakeArea {
+  position: relative;
+  display: inline-block;
+  margin: 8px 0;
+}
+
+.cake {
+  font-size: 95px;
+  display: block;
+  animation: cakeFloat 1.5s ease-in-out infinite;
+}
+
+@keyframes cakeFloat {
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+/* FLAME */
+
+.flame {
+  position: absolute;
+
+  font-size: 28px;
+
+  top: -5px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  animation: flame 0.5s infinite alternate;
+}
+
+@keyframes flame {
+  from {
+    transform: translateX(-50%) scale(1);
+  }
+
+  to {
+    transform: translateX(-50%) scale(1.15);
+  }
+}
+
+/* BLOWING EFFECT */
+
+.wind {
+  display: none;
+
+  font-size: 35px;
+
+  margin-top: -20px;
+
+  animation: windMove .8s ease forwards;
+}
+
+@keyframes windMove {
+  from {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(45px);
+    opacity: 1;
+  }
+}
+
+/* MESSAGE */
 
 #birthday {
   display: none;
   width: 100%;
 
-  animation: birthdayAppear 1s ease;
+  animation: appear 1s ease;
 }
 
-@keyframes birthdayAppear {
+@keyframes appear {
   from {
     opacity: 0;
-    transform: scale(0.7);
+    transform: scale(.7);
   }
 
   to {
@@ -194,38 +275,22 @@ body {
   }
 }
 
-/* CAKE */
-
-.cake {
-  font-size: 58px;
+.cakeSmall {
+  font-size: 48px;
   display: inline-block;
-
-  animation: cakeBounce 1.2s infinite;
+  animation: cakeFloat 1.2s infinite;
 }
-
-@keyframes cakeBounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-9px);
-  }
-}
-
-/* GUITAR */
 
 .guitar {
-  font-size: 50px;
+  font-size: 45px;
   display: inline-block;
-
   margin-left: 8px;
 
   animation: guitarMove 1.5s ease-in-out infinite;
 }
 
 @keyframes guitarMove {
-  0%, 100% {
+  0%,100% {
     transform: rotate(-8deg);
   }
 
@@ -234,74 +299,62 @@ body {
   }
 }
 
-/* TITLE */
-
 h1 {
   color: #ff3f8e;
-
-  font-size: 29px;
-
-  margin: 7px 0;
+  font-size: 27px;
+  margin: 6px 0;
 }
 
 .name {
   color: #d52e70;
-
   font-weight: bold;
-
-  font-size: 20px;
+  font-size: 19px;
 }
 
 .subtitle {
   color: #777;
-
-  font-size: 13px;
-
-  margin: 7px 0 12px;
+  font-size: 12px;
+  margin: 6px 0 10px;
 }
 
-/* MESSAGE */
+/* MESSAGE BOX */
 
 .message {
   background: #fff0f6;
 
   border-radius: 18px;
 
-  padding: 12px;
+  padding: 11px;
 
   color: #654052;
 
-  font-size: 12px;
+  font-size: 11px;
 
-  line-height: 1.45;
+  line-height: 1.4;
 }
 
 .message p {
-  margin: 6px 0;
+  margin: 5px 0;
 }
 
 .signature {
   color: #ff3f8e;
-
   font-weight: bold;
-
-  margin-top: 8px;
+  margin-top: 7px;
 }
 
 /* MUSIC PLAYER */
 
 .music-player {
-  margin-top: 12px;
+  margin-top: 10px;
 
   width: 100%;
 
-  padding: 10px;
+  padding: 8px;
 
   display: flex;
-
   align-items: center;
-
-  gap: 9px;
+  gap: 8px;
 
   background:
     linear-gradient(
@@ -315,16 +368,16 @@ h1 {
   border-radius: 18px;
 
   box-shadow:
-    0 5px 15px rgba(255, 80, 140, 0.15);
+    0 5px 15px rgba(255,80,140,.15);
 }
 
 /* PLAY BUTTON */
 
-.play-button {
-  width: 35px;
-  height: 35px;
+.playButton {
+  width: 34px;
+  height: 34px;
 
-  min-width: 35px;
+  min-width: 34px;
 
   border: none;
 
@@ -334,24 +387,18 @@ h1 {
 
   color: white;
 
-  font-size: 14px;
+  font-size: 13px;
 
   cursor: pointer;
-
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
 }
 
-/* RECORD */
+/* DISC */
 
 .disc {
-  width: 43px;
-  height: 43px;
+  width: 38px;
+  height: 38px;
 
-  min-width: 43px;
+  min-width: 38px;
 
   border-radius: 50%;
 
@@ -363,8 +410,6 @@ h1 {
       #222 10px 100%
     );
 }
-
-/* Spinning when music is playing */
 
 .disc.playing {
   animation: spin 4s linear infinite;
@@ -380,100 +425,77 @@ h1 {
   }
 }
 
-/* SONG INFORMATION */
+/* SONG INFO */
 
-.song-info {
+.songInfo {
   flex: 1;
-
   text-align: left;
-
   overflow: hidden;
 }
 
-.song-title {
+.songTitle {
   color: #c72e6d;
-
   font-weight: bold;
-
-  font-size: 13px;
-
+  font-size: 12px;
   white-space: nowrap;
 }
 
 .artist {
   color: #8c6070;
-
-  font-size: 11px;
-
+  font-size: 10px;
   margin-top: 2px;
 }
 
 /* MUSIC BARS */
 
-.music-bars {
+.musicBars {
   display: flex;
-
   align-items: center;
-
   gap: 3px;
-
-  height: 25px;
+  height: 23px;
 }
 
 .bar {
   width: 3px;
-
   background: #ff4f91;
-
   border-radius: 5px;
 
   animation:
-    bars 0.7s ease-in-out infinite alternate;
+    bars .7s ease-in-out infinite alternate;
 }
 
 .bar:nth-child(1) {
   height: 10px;
-  animation-delay: 0.1s;
 }
 
 .bar:nth-child(2) {
   height: 18px;
-  animation-delay: 0.2s;
+  animation-delay: .1s;
 }
 
 .bar:nth-child(3) {
   height: 13px;
-  animation-delay: 0.3s;
+  animation-delay: .2s;
 }
 
 .bar:nth-child(4) {
-  height: 22px;
-  animation-delay: 0.4s;
+  height: 21px;
+  animation-delay: .3s;
 }
 
 .bar:nth-child(5) {
   height: 15px;
-  animation-delay: 0.5s;
+  animation-delay: .4s;
 }
 
 @keyframes bars {
   from {
-    transform: scaleY(0.5);
+    transform: scaleY(.5);
   }
 
   to {
     transform: scaleY(1);
   }
-}
-
-/* MUSIC TEXT */
-
-.music-note {
-  margin-top: 5px;
-
-  color: #d52e70;
-
-  font-size: 10px;
 }
 
 /* SMALL PHONES */
@@ -482,55 +504,51 @@ h1 {
 
   .card {
     height: 92vh;
-
     padding: 10px;
   }
 
   .envelope {
-    font-size: 60px;
+    font-size: 58px;
   }
 
   .cake {
-    font-size: 42px;
+    font-size: 75px;
+  }
+
+  .candleTitle {
+    font-size: 22px;
+  }
+
+  .cakeSmall {
+    font-size: 40px;
   }
 
   .guitar {
-    font-size: 38px;
+    font-size: 37px;
   }
 
   h1 {
-    font-size: 24px;
+    font-size: 23px;
   }
 
   .message {
-    font-size: 10px;
-
-    padding: 8px;
-  }
-
-  .music-player {
-    margin-top: 8px;
-
+    font-size: 9px;
     padding: 7px;
   }
 
-  .disc {
-    width: 35px;
-    height: 35px;
-
-    min-width: 35px;
+  .music-player {
+    padding: 6px;
+    margin-top: 7px;
   }
 }
 
-/* FADE */
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
+@keyframes bounce {
+  0%,100% {
+    transform: translateY(0);
   }
 
-  to {
-    opacity: 1;
+  50% {
+    transform: translateY(-12px);
   }
 }
 </style>
@@ -552,10 +570,7 @@ h1 {
 
   <div id="openScreen">
 
-    <div
-      class="envelope"
-      onclick="openBirthday()"
-    >
+    <div class="envelope">
       💌
     </div>
 
@@ -564,12 +579,12 @@ h1 {
     </div>
 
     <div class="openText">
-      Tap to open your surprise 🎀
+      Something special is waiting for you 🎀
     </div>
 
     <button
       class="openButton"
-      onclick="openBirthday()"
+      onclick="openCake()"
     >
       🎁 OPEN
     </button>
@@ -577,15 +592,62 @@ h1 {
   </div>
 
 
-  <!-- BIRTHDAY SCREEN -->
+  <!-- CANDLE SCREEN -->
+
+  <div id="candleScreen">
+
+    <div class="candleTitle">
+      Make a Wish! ✨
+    </div>
+
+    <div class="candleText">
+      Before you see your message...<br>
+      blow out the candle! 🕯️💨
+    </div>
+
+
+    <div class="cakeArea">
+
+      <div
+        class="flame"
+        id="flame"
+      >
+        🔥
+      </div>
+
+      <div class="cake">
+        🎂
+      </div>
+
+    </div>
+
+
+    <div
+      class="wind"
+      id="wind"
+    >
+      💨💨💨
+    </div>
+
+
+    <button
+      class="blowButton"
+      onclick="blowCandle()"
+      id="blowButton"
+    >
+      💨 BLOW THE CANDLE
+    </button>
+
+  </div>
+
+
+  <!-- BIRTHDAY MESSAGE -->
 
   <div id="birthday">
 
-    <!-- CAKE + GUITAR -->
-
     <div>
 
-      <span class="cake">
+      <span class="cakeSmall">
         🎂
       </span>
 
@@ -595,8 +657,6 @@ h1 {
 
     </div>
 
-
-    <!-- TITLE -->
 
     <h1>
       Happy Birthday! 🎉
@@ -630,19 +690,16 @@ h1 {
       </p>
 
       <p>
-        Salamat sa tawanan,
-        kwentuhan, at lahat
-        ng trip natin.
-        I'm glad na ikaw yung
-        isa sa mga taong
-        pwede kong maging
-        sarili ko. 💕
+        Salamat sa lahat ng tawanan,
+        kwentuhan, at kalokohan.
+        I'm glad na ikaw yung isa
+        sa mga taong pwede kong
+        maging sarili ko. 💕
       </p>
 
       <p>
         Another year,
-        another level
-        ng kalokohan natin! 😂🎀
+        another level ng kalokohan natin! 😂🎀
       </p>
 
       <div class="signature">
@@ -656,10 +713,8 @@ h1 {
 
     <div class="music-player">
 
-      <!-- PLAY BUTTON -->
-
       <button
-        class="play-button"
+        class="playButton"
         id="playButton"
         onclick="toggleMusic()"
       >
@@ -667,19 +722,15 @@ h1 {
       </button>
 
 
-      <!-- RECORD -->
-
       <div
         class="disc"
         id="disc"
       ></div>
 
 
-      <!-- SONG INFO -->
+      <div class="songInfo">
 
-      <div class="song-info">
-
-        <div class="song-title">
+        <div class="songTitle">
           🎵 Fifteen
         </div>
 
@@ -690,9 +741,7 @@ h1 {
       </div>
 
 
-      <!-- MUSIC BARS -->
-
-      <div class="music-bars">
+      <div class="musicBars">
 
         <div class="bar"></div>
         <div class="bar"></div>
@@ -704,17 +753,12 @@ h1 {
 
     </div>
 
-
-    <div class="music-note">
-      Tap ▶ if the music doesn't start 🎵
-    </div>
-
   </div>
 
 </div>
 
 
-<!-- AUDIO -->
+<!-- AUDIO FILE -->
 
 <audio
   id="birthdaySong"
@@ -730,59 +774,104 @@ h1 {
 
 <script>
 
-let musicStarted = false;
+/* OPEN CAKE SCREEN */
 
-
-/* OPEN BIRTHDAY */
-
-function openBirthday() {
+function openCake() {
 
   document.getElementById("openScreen").style.display =
     "none";
 
-  document.getElementById("birthday").style.display =
+  document.getElementById("candleScreen").style.display =
     "block";
+}
 
 
-  const song =
-    document.getElementById("birthdaySong");
+/* BLOW CANDLE */
+
+function blowCandle() {
+
+  const flame =
+    document.getElementById("flame");
+
+  const wind =
+    document.getElementById("wind");
+
+  const button =
+    document.getElementById("blowButton");
 
 
-  song.volume = 1.0;
+  /* Wind animation */
+
+  wind.style.display = "block";
+
+
+  /* Turn off flame */
+
+  flame.style.display = "none";
+
+
+  button.textContent =
+    "✨ Wish made!";
+
+
+  button.disabled = true;
 
 
   /*
-    Try to start the music
-    immediately after the button tap.
+    Wait a moment before
+    showing the birthday message.
   */
 
-  song.play()
-    .then(function() {
+  setTimeout(function() {
 
-      musicStarted = true;
+    document.getElementById("candleScreen").style.display =
+      "none";
 
-      document
-        .getElementById("playButton")
-        .textContent = "❚❚";
+    document.getElementById("birthday").style.display =
+      "block";
 
-      document
-        .getElementById("disc")
-        .classList
-        .add("playing");
 
-    })
-    .catch(function(error) {
+    /* Try to start music */
 
-      console.log(
-        "Music needs to be started manually."
-      );
+    const song =
+      document.getElementById("birthdaySong");
 
-    });
+
+    song.volume = 1.0;
+
+
+    song.play()
+      .then(function() {
+
+        document
+          .getElementById("playButton")
+          .textContent = "❚❚";
+
+        document
+          .getElementById("disc")
+          .classList
+          .add("playing");
+
+      })
+      .catch(function() {
+
+        /*
+          Browser may require
+          manual play.
+        */
+
+        console.log(
+          "Tap the play button to start music."
+        );
+
+      });
+
+  }, 900);
 
 }
 
 
-/* PLAY / PAUSE */
+/* PLAY / PAUSE MUSIC */
 
 function toggleMusic() {
 
