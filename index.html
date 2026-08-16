@@ -2,39 +2,264 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Happy Birthday, Hanna! 💗</title>
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Happy Birthday, Bes! 💗</title>
 <style>
-* {
-  box-sizing: border-box;
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#ff9fc7,#ff69a4,#ffc7df);
+  display:flex;align-items:center;justify-content:center;
+}
+.bg-heart{position:fixed;font-size:22px;opacity:.7;animation:float 7s linear infinite;z-index:0}
+.h1{left:8%;animation-delay:0s}.h2{left:28%;animation-delay:2s}
+.h3{right:22%;animation-delay:1s}.h4{right:7%;animation-delay:3s}
+@keyframes float{0%{transform:translateY(105vh);opacity:0}15%{opacity:.8}100%{transform:translateY(-15vh);opacity:0}}
+
+.card{
+ width:min(92vw,410px);height:min(92vh,650px);
+ background:#fff9fc;border:4px solid #ff70aa;border-radius:32px;
+ box-shadow:0 18px 45px #a92c6250;
+ padding:18px;position:relative;z-index:2;
+ display:flex;align-items:center;justify-content:center;
+}
+.screen{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.hidden{display:none!important}
+.fade{animation:fade .65s ease}
+@keyframes fade{from{opacity:0;transform:translateX(25px) scale(.98)}to{opacity:1;transform:none}}
+
+.envelope{font-size:72px;animation:bob 1.4s infinite}
+@keyframes bob{50%{transform:translateY(-9px)}}
+.title{font-size:29px;font-weight:800;color:#f93686;margin:10px 0}
+.sub{color:#765763;font-size:14px;line-height:1.5}
+.btn{
+ border:0;border-radius:30px;padding:13px 25px;margin-top:16px;
+ background:linear-gradient(135deg,#ff3f8e,#ff78ad);color:white;
+ font-weight:800;font-size:14px;cursor:pointer;
+ box-shadow:0 7px 16px #ff3f8e55
+}
+.btn:active{transform:scale(.95)}
+
+.cake{font-size:95px;animation:cake 1.4s infinite}
+@keyframes cake{50%{transform:translateY(-6px)}}
+.flame{font-size:28px;animation:flicker .4s infinite alternate}
+@keyframes flicker{to{transform:scale(1.15)}}
+.wind{font-size:32px;display:none}
+.small{font-size:12px;color:#80606c}
+
+.cakeIcon{font-size:45px;display:inline-block;animation:bob 1.5s infinite}
+.guitar{font-size:46px;display:inline-block;animation:guitar 1.2s infinite}
+@keyframes guitar{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
+
+h1{font-size:29px;color:#f93686;margin:8px 0}
+.to{font-size:20px;font-weight:800;color:#d52e70;margin:3px 0}
+.partner{font-size:13px;color:#777;margin-bottom:12px}
+
+.message{
+ width:100%;background:#fff0f6;border:2px dashed #ffb2ce;
+ border-radius:19px;padding:12px;color:#644552;font-size:11px;line-height:1.5;
+ animation:message .8s ease
+}
+@keyframes message{from{opacity:0;transform:scale(.88) rotate(-1deg)}to{opacity:1;transform:none}}
+.message strong{display:block;color:#f93686;font-size:13px;margin-bottom:4px}
+
+.player{
+ width:100%;margin-top:11px;background:#ffe0ec;border:2px solid #ff91bb;
+ border-radius:19px;padding:9px;display:flex;align-items:center;gap:9px;
+}
+.play{width:38px;height:38px;border:0;border-radius:50%;background:#ff4b93;color:#fff;font-weight:bold;cursor:pointer}
+.disc{width:40px;height:40px;border-radius:50%;background:radial-gradient(circle,#ff78ad 0 5px,#f93d88 6px 9px,#222 10px);flex:none}
+.spin{animation:spin 3s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.song{text-align:left}.song b{font-size:13px;color:#c52f6b}.song span{display:block;font-size:10px;color:#8b6673;margin-top:2px}
+
+.letter-screen{justify-content:flex-start;padding-top:4px}
+.letter-title{color:#f93686;font-size:22px;font-weight:800;margin:4px 0 9px}
+.letter{
+ width:100%;background:#fff;border:2px solid #ffc0d8;border-radius:19px;
+ padding:12px;text-align:left;color:#5d4650;font-size:10.5px;line-height:1.45;
+ animation:letter .75s ease
+}
+@keyframes letter{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.letter p{margin:6px 0}
+.greeting{color:#f93686;font-weight:bold;font-size:12px}
+.signature{text-align:center;color:#d52e70;font-weight:bold;font-size:14px;margin-top:9px}
+
+.burat{
+ position:fixed;bottom:7px;left:-90px;z-index:20;
+ font-size:20px;font-weight:900;color:#fff;
+ text-shadow:2px 2px 0 #d92c70,0 0 8px #ff4b93;
+ animation:run 7s linear infinite;
+ pointer-events:none;
+}
+.burat:after{content:"🐭";font-size:25px;margin-left:5px}
+@keyframes run{
+ 0%{left:-100px;transform:translateY(0) scaleX(1)}
+ 20%{transform:translateY(-24px) scaleX(1)}
+ 40%{transform:translateY(0) scaleX(1)}
+ 50%{left:45vw;transform:translateY(-28px) scaleX(1)}
+ 60%{transform:translateY(0) scaleX(-1)}
+ 80%{transform:translateY(-23px) scaleX(-1)}
+ 100%{left:calc(100vw + 100px);transform:translateY(0) scaleX(-1)}
 }
 
-html, body {
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+@media(max-height:620px){
+ .card{height:94vh;padding:12px}
+ .title{font-size:24px}.envelope{font-size:58px}.cake{font-size:72px}
+ .letter{font-size:9px;padding:9px}.message{font-size:9.5px}
+}
+</style>
+</head>
+<body>
+
+<div class="bg-heart h1">💗</div>
+<div class="bg-heart h2">💕</div>
+<div class="bg-heart h3">💖</div>
+<div class="bg-heart h4">💞</div>
+
+<!-- BURAT: text/emoji only, no mouse image -->
+<div class="burat">BURAT</div>
+
+<div class="card">
+
+  <!-- PAGE 1 -->
+  <section id="open" class="screen fade">
+    <div class="envelope">💌</div>
+    <div class="title">A Birthday Surprise!</div>
+    <div class="sub">Something special is waiting for you,<br><b style="color:#f93686">Hanna</b>! 💗</div>
+    <button class="btn" onclick="openCake()">OPEN 💌</button>
+  </section>
+
+  <!-- PAGE 2 -->
+  <section id="candle" class="screen hidden fade">
+    <div class="title" style="font-size:25px">Make a Wish! ✨</div>
+    <div class="sub">Before you see your message...<br>blow out the candle! 🕯️💨</div>
+    <div id="flame" class="flame">🔥</div>
+    <div class="cake">🎂</div>
+    <div id="wind" class="wind">💨💨💨</div>
+    <button id="blow" class="btn" onclick="blowCandle()">💨 BLOW THE CANDLE</button>
+  </section>
+
+  <!-- PAGE 3 -->
+  <section id="main" class="screen hidden fade">
+    <div>
+      <span class="cakeIcon">🎂</span>
+      <span class="guitar">🎸</span>
+    </div>
+
+    <h1>Happy Birthday, Bes! 🎉</h1>
+    <div class="partner">My favorite partner in crime. 🎀</div>
+    <div class="to">To: Hanna 💗</div>
+
+    <div class="message">
+      <strong>A little message for you 💌</strong>
+      Thank you for being someone I can trust, laugh with,
+      and share countless memories and kalokohan with. 💗
+    </div>
+
+    <div class="player">
+      <button id="play" class="play" onclick="music()">▶</button>
+      <div id="disc" class="disc"></div>
+      <div class="song">
+        <b>🎵 Fifteen</b>
+        <span>Taylor Swift</span>
+      </div>
+    </div>
+
+    <button class="btn" onclick="nextPage()">NEXT ➜ 💌</button>
+  </section>
+
+  <!-- PAGE 4 -->
+  <section id="letterPage" class="screen letter-screen hidden fade">
+    <div style="font-size:40px">💌</div>
+    <div class="letter-title">A Birthday Letter for Hanna 💗</div>
+
+    <div class="letter">
+      <p class="greeting">Dear Hanna,</p>
+
+      <p>On your special day, I would like to wish you a wonderful birthday
+      filled with happiness, peace, and meaningful moments.</p>
+
+      <p>I am truly grateful to have you as my friend and as my partner in
+      crime—the person who knows so many of my stories, secrets, and
+      countless kalokohan.</p>
+
+      <p>Thank you for being someone I can trust, laugh with, and share
+      different experiences with. I sincerely appreciate all the memories
+      we have created together, and I hope we continue making many more.</p>
+
+      <p>As you begin another year of your life, I wish you success in
+      everything you pursue, good health, genuine happiness, and strength
+      through every challenge that comes your way.</p>
+
+      <p>May you continue to grow into the person you aspire to become,
+      and may you always remember how valuable and appreciated you are.</p>
+
+      <p>Once again, <b>Happy Birthday, Bes!</b> May your special day be
+      wonderful and memorable. 🎂💗</p>
+
+      <div class="signature">Your Kuya Ivo 💗</div>
+    </div>
+
+    <button class="btn" onclick="backPage()">← BACK</button>
+  </section>
+
+</div>
+
+<!-- Put song.mp3 in the same GitHub repository as this index.html -->
+<audio id="song" preload="auto" loop>
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function show(id){
+  document.querySelectorAll(".screen").forEach(x=>x.classList.add("hidden"));
+  const page=document.getElementById(id);
+  page.classList.remove("hidden");
+  page.classList.remove("fade");
+  void page.offsetWidth;
+  page.classList.add("fade");
 }
 
-body {
-  font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background:
-    radial-gradient(circle at 20% 20%, #ffeaf3, transparent 30%),
-    radial-gradient(circle at 80% 80%, #ffcade, transparent 30%),
-    linear-gradient(135deg, #ffb6d5, #ff8fbc, #ffd9e8);
+function openCake(){show("candle")}
+
+function blowCandle(){
+  document.getElementById("flame").style.display="none";
+  document.getElementById("wind").style.display="block";
+
+  const b=document.getElementById("blow");
+  b.textContent="✨ Wish made!";
+  b.disabled=true;
+
+  setTimeout(()=>show("main"),900);
 }
 
-/* FLOATING HEARTS */
+function nextPage(){show("letterPage")}
+function backPage(){show("main")}
 
-.heart {
-  position: fixed;
-  font-size: 24px;
-  pointer-events: none;
+function music(){
+  const song=document.getElementById("song");
+  const play=document.getElementById("play");
+  const disc=document.getElementById("disc");
+
+  if(song.paused){
+    song.play().then(()=>{
+      play.textContent="❚❚";
+      disc.classList.add("spin");
+    }).catch(()=>{
+      alert("Tap ▶ again to allow the music to play.");
+    });
+  }else{
+    song.pause();
+    play.textContent="▶";
+    disc.classList.remove("spin");
+  }
+}
+</script>
+
+</body>
+</html>  pointer-events: none;
   opacity: 0;
   animation: floatUp 6s linear infinite;
 }
